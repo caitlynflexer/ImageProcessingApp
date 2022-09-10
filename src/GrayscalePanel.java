@@ -1,15 +1,13 @@
-import processing.core.PApplet;
-
 public class GrayscalePanel extends Panel {
 
-    public GrayscalePanel(PApplet _pApplet, int _x, int _y, int _w, int _h, int _identifier) {
-        super(_pApplet, _x, _y, _w, _h, _identifier);
+    public GrayscalePanel(int _x, int _y, int _w, int _h, int _identifier, String _imageName) {
+        super(_x, _y, _w, _h, _identifier, _imageName);
 
         setPanelName("Grayscale (pixels)");
+        applyGrayscale();
     }
 
-    public void setupImage() {
-        super.setupImage();
+    public void applyGrayscale() {
 
         int w = getWidth();
         int h = getHeight();
@@ -23,14 +21,14 @@ public class GrayscalePanel extends Panel {
                 int loc = x + (y * w);  // position of pixel in image (panel) space
 
                 // get original pixel value of r, g, b components
-                float r = getPApplet().red(pix[loc]);
-                float g = getPApplet().green(pix[loc]);
-                float b = getPApplet().blue(pix[loc]);
+                float r = Main.app.red(pix[loc]);
+                float g = Main.app.green(pix[loc]);
+                float b = Main.app.blue(pix[loc]);
 
                 // convert to grayscale
                 float avg = (r+g+b)/3;
 
-                pix[loc] = getPApplet().color(avg);
+                pix[loc] = Main.app.color(avg);
             }
 
             getImage().updatePixels();

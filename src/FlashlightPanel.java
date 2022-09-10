@@ -5,8 +5,8 @@ public class FlashlightPanel extends Panel {
     int xFlashlight;
     int dxFlashlight;
 
-    public FlashlightPanel(PApplet _pApplet, int _x, int _y, int _w, int _h, int _identifier) {
-        super(_pApplet, _x, _y, _w, _h, _identifier);
+    public FlashlightPanel(int _x, int _y, int _w, int _h, int _identifier, String _imageName) {
+        super(_x, _y, _w, _h, _identifier, _imageName);
 
         xFlashlight = 0;
         dxFlashlight = 3;
@@ -18,7 +18,7 @@ public class FlashlightPanel extends Panel {
 
     public void display() {
 
-        getPApplet().loadPixels();
+        Main.app.loadPixels();
 
         int w = getWidth();
         int h = getHeight();
@@ -32,31 +32,31 @@ public class FlashlightPanel extends Panel {
                 int loc = x + (y * w);
 
                 // get original pixel value of r, g, b
-                float r = getPApplet().red(pix[loc]);
-                float g = getPApplet().green(pix[loc]);
-                float b = getPApplet().blue(pix[loc]);
+                float r = Main.app.red(pix[loc]);
+                float g = Main.app.green(pix[loc]);
+                float b = Main.app.blue(pix[loc]);
 
                 int xGlobal = getX() + x;
                 int yGlobal = getY() + y;
 
                 int yFlashlight = getY() + h/2;
 
-                float d = getPApplet().dist(xFlashlight, yFlashlight, xGlobal, yGlobal);
+                float d = Main.app.dist(xFlashlight, yFlashlight, xGlobal, yGlobal);
 
                 int locGlobal = globalLoc(x, y);
 
-                float factor = getPApplet().map(d, 0, 100, 2, 0);
-                getPApplet().pixels[locGlobal] = getPApplet().color(r*factor, g*factor, b*factor);
+                float factor = Main.app.map(d, 0, 100, 2, 0);
+                Main.app.pixels[locGlobal] = Main.app.color(r*factor, g*factor, b*factor);
             }
         }
-        getPApplet().updatePixels();
+        Main.app.updatePixels();
 
         if (getX() == 0) {
-            int percent = xFlashlight * 100 / getPApplet().width;
+            int percent = xFlashlight * 100 / Main.app.width;
             setPanelName("Flashlight (pixels): " + percent + "%");
         }
 
-        if (xFlashlight >= getPApplet().width || xFlashlight < 0) {
+        if (xFlashlight >= Main.app.width || xFlashlight < 0) {
             dxFlashlight *= -1;
         }
         xFlashlight += dxFlashlight;

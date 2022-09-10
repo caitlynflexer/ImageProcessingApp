@@ -1,5 +1,3 @@
-import processing.core.PApplet;
-
 public class TintedPanel extends Panel {
 
     float hue;
@@ -7,8 +5,8 @@ public class TintedPanel extends Panel {
     float lightness;
     float dHue;
 
-    public TintedPanel(PApplet _pApplet, int _x, int _y, int _w, int _h, int _identifier) {
-        super(_pApplet, _x, _y, _w, _h, _identifier);
+    public TintedPanel(int _x, int _y, int _w, int _h, int _identifier, String _imageName) {
+        super(_x, _y, _w, _h, _identifier, _imageName);
 
         hue = (float)randomDouble(0, 1);
         saturation = (float)randomDouble(0.5, 1);
@@ -23,10 +21,10 @@ public class TintedPanel extends Panel {
     public void display() {
 
         if (getX() == 0) {
-            getPApplet().tint(randomInt(0, 256), randomInt(0, 256), randomInt(0, 256), randomInt(200, 256));
+            Main.app.tint(randomInt(0, 256), randomInt(0, 256), randomInt(0, 256), randomInt(200, 256));
         } else {
             int[] rgb = hslToRgb(hue, saturation, lightness);
-            getPApplet().tint(rgb[0], rgb[1], rgb[2], 255);
+            Main.app.tint(rgb[0], rgb[1], rgb[2], 255);
 
             hue += dHue;
             if (hue >= 1 || hue <= 0) {
@@ -36,7 +34,7 @@ public class TintedPanel extends Panel {
         }
 
         super.display();    // or image(getImage(), getX(), getY(), getWidth(), getHeight());
-        getPApplet().noTint();
+        Main.app.noTint();
     }
 
 

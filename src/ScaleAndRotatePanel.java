@@ -1,6 +1,4 @@
-import processing.core.PApplet;
-
-public class ScaleAndRotatePanel extends Panel {
+public class ScaleAndRotatePanel extends Panel implements Clickable {
 
     float scale;
     float dScale;
@@ -12,8 +10,8 @@ public class ScaleAndRotatePanel extends Panel {
 
     //float rad;
 
-    public ScaleAndRotatePanel(PApplet _pApplet, int _x, int _y, int _w, int _h, int _identifier) {
-        super(_pApplet, _x, _y, _w, _h, _identifier);
+    public ScaleAndRotatePanel(int _x, int _y, int _w, int _h, int _identifier, String _imageName) {
+        super(_x, _y, _w, _h, _identifier, _imageName);
 
         scale = 1;
         dScale = (float) -0.01;
@@ -38,13 +36,13 @@ public class ScaleAndRotatePanel extends Panel {
     }
 
     public void display() {
-        getPApplet().pushMatrix();
-        getPApplet().translate(getX() + getWidth()/2, getY() + getHeight()/2); // translate to center of panel
-        getPApplet().rotate(angle);
-        getPApplet().scale(scale);
-        getPApplet().translate(-getWidth()/2, -getHeight()/2);  // translate so that center of image matches center of rotation
-        getPApplet().image(getImage(), 0, 0, getWidth(), getHeight());
-        getPApplet().popMatrix();
+        Main.app.pushMatrix();
+        Main.app.translate(getX() + getWidth()/2, getY() + getHeight()/2); // translate to center of panel
+        Main.app.rotate(angle);
+        Main.app.scale(scale);
+        Main.app.translate(-getWidth()/2, -getHeight()/2);  // translate so that center of image matches center of rotation
+        Main.app.image(getImage(), 0, 0, getWidth(), getHeight());
+        Main.app.popMatrix();
 
         //Class solution:
         //imageMode(CENTER);

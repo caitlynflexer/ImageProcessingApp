@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b20d0098-e9b0-4915-a4d3-afaab7339adb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="b20d0098-e9b0-4915-a4d3-afaab7339adb" name="Changes" comment="image processing project - updated panels">
+      <change afterPath="$PROJECT_DIR$/src/Clickable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Drawable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ImageWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Reflectable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AlphaModification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AlphaModification.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BlendedPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BlendedPanel.java" afterDir="false" />
@@ -14,7 +16,6 @@
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NegativePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NegativePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Panel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PanelTimerTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PanelTimerTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ReflectionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReflectionPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ScaleAndRotatePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScaleAndRotatePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ThresholdPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ThresholdPanel.java" afterDir="false" />
@@ -33,6 +34,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -95,6 +97,14 @@
       <option name="presentableId" value="Default" />
       <updated>1661745593611</updated>
     </task>
+    <task id="LOCAL-00001" summary="image processing project - updated panels">
+      <created>1661798841245</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1661798841245</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -107,6 +117,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="image processing project - updated panels" />
+    <option name="LAST_COMMIT_MESSAGE" value="image processing project - updated panels" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,24 +1,19 @@
-import processing.core.PApplet;
-
 public class FilterPanel extends Panel {
 
-    public FilterPanel(PApplet _pApplet, int _x, int _y, int _w, int _h, int _identifier) {
-        super(_pApplet, _x, _y, _w, _h, _identifier);
+    public FilterPanel(int _x, int _y, int _w, int _h, int _identifier, String _imageName) {
+        super(_x, _y, _w, _h, _identifier, _imageName);
         createTimer(2000);
-    }
-
-    public void setupImage() {
-        super.setupImage();
         applyFilter();
     }
 
     public void onTimer() {
-        setupImage();
+        reloadImage();
+        applyFilter();
     }
 
     public void applyFilter() {
 
-        int[] filters = {getPApplet().THRESHOLD, getPApplet().GRAY, getPApplet().INVERT, getPApplet().POSTERIZE, getPApplet().BLUR, getPApplet().ERODE, getPApplet().DILATE, getPApplet().OPAQUE};
+        int[] filters = {Main.app.THRESHOLD, Main.app.GRAY, Main.app.INVERT, Main.app.POSTERIZE, Main.app.BLUR, Main.app.ERODE, Main.app.DILATE, Main.app.OPAQUE};
         String[] filterNames = {"Threshold", "Gray", "Invert", "Posterized", "Blur", "Erode", "Dilate", "Opaque"};
         float[] filterArgs = {(float)0.5, 0, 0, 4, 6, 0, 0, 0};
 

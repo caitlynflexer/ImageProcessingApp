@@ -5,8 +5,8 @@ public class AlphaModification extends Panel {
     int alpha;
     int dAlpha;
 
-    public AlphaModification(PApplet _pApplet, int _x, int _y, int _w, int _h, int _identifier) {
-        super(_pApplet, _x, _y, _w, _h, _identifier);
+    public AlphaModification(int _x, int _y, int _w, int _h, int _identifier, String _imageName) {
+        super(_x, _y, _w, _h, _identifier, _imageName);
 
         if (getX() == 0) {
             setPanelName("Transparency");
@@ -17,9 +17,9 @@ public class AlphaModification extends Panel {
     }
 
     public void display() {
-        getPApplet().tint(255, alpha); // Apply transparency without changing color
+        Main.app.tint(255, alpha); // Apply transparency without changing color
         super.display();
-        getPApplet().noTint();
+        Main.app.noTint();
 
         if (getX() == 0) {
             int percent = alpha * 100 / 255;

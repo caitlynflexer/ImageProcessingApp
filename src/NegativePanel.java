@@ -1,16 +1,14 @@
-import processing.core.PApplet;
-
 public class NegativePanel extends Panel {
 
-    public NegativePanel(PApplet _pApplet, int _x, int _y, int _w, int _h, int _identifier) {
-        super(_pApplet, _x, _y, _w, _h, _identifier);
+    public NegativePanel(int _x, int _y, int _w, int _h, int _identifier, String _imageName) {
+        super(_x, _y, _w, _h, _identifier, _imageName);
 
         setPanelName("Negative (pixels)");
         setPanelNameColor(0);
+        applyNegative();
     }
 
-    public void setupImage() {
-        super.setupImage();
+    public void applyNegative() {
 
         int w = getWidth();
         int h = getHeight();
@@ -24,11 +22,11 @@ public class NegativePanel extends Panel {
                 int loc = x + (y * w);
 
                 // get original pixel value of r, g, b and calculate new r, g, b values
-                float r = 255 - getPApplet().red(pix[loc]);
-                float g = 255 - getPApplet().green(pix[loc]);
-                float b = 255 - getPApplet().blue(pix[loc]);
+                float r = 255 - Main.app.red(pix[loc]);
+                float g = 255 - Main.app.green(pix[loc]);
+                float b = 255 - Main.app.blue(pix[loc]);
 
-                pix[loc] = getPApplet().color(r, g, b);
+                pix[loc] = Main.app.color(r, g, b);
             }
 
             getImage().updatePixels();

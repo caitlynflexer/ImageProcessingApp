@@ -1,20 +1,17 @@
-import processing.core.PApplet;
-
-public class ReflectionPanel extends Panel {
+public class ReflectionPanel extends Panel implements Reflectable {
 
     int w;
     int h;
 
 
-    public ReflectionPanel(PApplet _pApplet, int _x, int _y, int _w, int _h, int _identifier) {
-        super(_pApplet, _x, _y, _w, _h, _identifier);
+    public ReflectionPanel(int _x, int _y, int _w, int _h, int _identifier, String _imageName) {
+        super(_x, _y, _w, _h, _identifier, _imageName);
         w = getWidth();
         h = getHeight();
+        determineReflection();
     }
 
-    public void setupImage() {
-
-        super.setupImage();
+    public void determineReflection() {
 
         int panelCol = getX() / getWidth();
 
@@ -79,4 +76,5 @@ public class ReflectionPanel extends Panel {
 
         setPanelName("Horiz. & vert. reflection");
     }
-} 
+
+}

@@ -1,11 +1,10 @@
-import processing.core.PApplet;
 import processing.core.PImage;
 
 public class ContrastedPanel extends Panel {
     // Class 5/11/2021 - currently not displayed, as it is very similar to my threshold panel
 
-    public ContrastedPanel(PApplet _pApplet, int _x, int _y, int _w, int _h, int _identifier) {
-        super(_pApplet, _x, _y, _w, _h, _identifier);
+    public ContrastedPanel(int _x, int _y, int _w, int _h, int _identifier, String _imageName) {
+        super(_x, _y, _w, _h, _identifier, _imageName);
 
         if (_x == 0) {
             setPanelName("Contrasted (pixels)");
@@ -27,10 +26,10 @@ public class ContrastedPanel extends Panel {
 
                 int loc = x + (y * w);
 
-                if (getPApplet().brightness(pix[loc]) > 150) {
-                    pix[loc] = getPApplet().color(255);
+                if (Main.app.brightness(pix[loc]) > 150) {
+                    pix[loc] = Main.app.color(255);
                 } else {
-                    pix[loc] = getPApplet().color(0, 0);
+                    pix[loc] = Main.app.color(0, 0);
                 }
             }
         }
@@ -41,6 +40,6 @@ public class ContrastedPanel extends Panel {
             displayPanelName();
         }
 
-        getPApplet().image(newImg, getX(), getY(), getWidth(), getHeight());
+        Main.app.image(newImg, getX(), getY(), getWidth(), getHeight());
     }
 }

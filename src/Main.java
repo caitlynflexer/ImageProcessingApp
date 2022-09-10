@@ -4,7 +4,13 @@ public class Main extends PApplet {
 
     final int NUM_PANELS_HORIZONTAL = 4; // the horizontal quantity of panels; number of columns
     final int NUM_PANELS_VERTICAL = 11; // the vertical quantity of panels; number of rows
-    private Panel[] panels; // declaration of array of type Panels
+    private Drawable[] panels; // declaration of array of type Drawable
+
+    public static PApplet app;
+
+    public Main() {
+        app = this;
+    }
 
     public static void main(String[] args) {
         PApplet.main("Main");
@@ -15,9 +21,8 @@ public class Main extends PApplet {
     }
 
     public void setup() {
-
         // allocating space for panels, but not adding them yet
-        panels = new Panel[NUM_PANELS_HORIZONTAL * NUM_PANELS_VERTICAL];
+        panels = new Drawable[NUM_PANELS_HORIZONTAL * NUM_PANELS_VERTICAL];
 
         // position in the array for the next panel
         int index = 0;
@@ -25,6 +30,8 @@ public class Main extends PApplet {
         // calculating the width and height of each panel object
         int w = width / NUM_PANELS_HORIZONTAL;
         int h = height / NUM_PANELS_VERTICAL;
+
+        String imageName = "data/galaxytransparent.png";
 
         for (int col = 0; col < NUM_PANELS_HORIZONTAL; col++) {    // iterate by column
             for (int row = 0; row < NUM_PANELS_VERTICAL; row++) {   // iterate by row
@@ -34,43 +41,40 @@ public class Main extends PApplet {
                 int y = row * height / NUM_PANELS_VERTICAL;
 
                 // instantiate and setup a Panel object
-                Panel s;  // declaring a new variable of type panel
+                Panel s;  // declaring a new variable of type Drawable
 
                 if (row == 0) {
                     if (col == 0) {
-                        s = new Panel(this, x, y, w, h, index);
+                        s = new Panel(x, y, w, h, index, imageName);
                         s.setPanelName("Original");
                     } else {
-                        s = new ReflectionPanel(this, x, y, w, h, index);
+                        s = new ReflectionPanel(x, y, w, h, index, imageName);
                     }
                 } else if (row == 1) {
                     if (col % 2 == 0) {
-                        s = new GrayscalePanel(this, x, y, w, h, index);
+                        s = new GrayscalePanel(x, y, w, h, index, imageName);
                     } else {
-                        s = new NegativePanel(this, x, y, w, h, index);
+                        s = new NegativePanel(x, y, w, h, index, imageName);
                     }
                 } else if (row == 2) {
-                    s = new AlphaModification(this, x, y, w, h, index);
+                    s = new AlphaModification(x, y, w, h, index, imageName);
                 } else if (row == 3) {
-                    s = new TintedPanel(this, x, y, w, h, index);
+                    s = new TintedPanel(x, y, w, h, index, imageName);
                 } else if (row == 4) {
-                    s = new ThresholdPanel(this, x, y, w, h, index);
+                    s = new ThresholdPanel(x, y, w, h, index, imageName);
                 } else if (row == 5) {
-                    s = new FlashlightPanel(this, x, y, w, h, index);
+                    s = new FlashlightPanel(x, y, w, h, index, imageName);
                 } else if (row == 6) {
-                    s = new ScaleAndRotatePanel(this, x, y, w, h, index);
+                    s = new ScaleAndRotatePanel(x, y, w, h, index, imageName);
                 } else if (row == 7) {
-                    s = new FilterPanel(this, x, y, w, h, index);
+                    s = new FilterPanel(x, y, w, h, index, imageName);
                 } else if (row == 8) {
-                    s = new BlendedPanel(this, x, y, w, h, index, "data/spaceimage.jpg");
+                    s = new BlendedPanel(x, y, w, h, index, imageName, "data/spaceimage.jpg");
                 } else if (row == 9) {
-                    s = new VectorPanel(this, x, y, w, h, index, (float) 0.3);
+                    s = new VectorPanel(x, y, w, h, index, imageName, (float) 0.3);
                 } else {
-                    s = new ContrastedPanel(this, x, y, w, h, index);
+                    s = new ContrastedPanel(x, y, w, h, index, imageName);
                 }
-
-                // call method on Panel to load image
-                s.setupImage("data/galaxytransparent.png");
 
                 // adding the Panel object into the array
                 panels[index] = s;
@@ -89,8 +93,10 @@ public class Main extends PApplet {
 
     public void mouseClicked() {
         for (int i = 0; i < panels.length; i++) {
-            Panel s = panels[i];
-            s.handleMouseClicked(mouseX, mouseY);
+            Drawable s = panels[i];
+            if (s instanceof Clickable) { // check if s is an instance of Clickable
+                ((Clickable)s).handleMouseClicked(mouseX, mouseY); // downcasting
+            }
         }
     }
 
@@ -113,3 +119,4 @@ public class Main extends PApplet {
         updatePixels();
     }
 }
+
