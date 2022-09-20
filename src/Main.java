@@ -129,11 +129,9 @@ public class Main extends PApplet {
         int y1 = panel1.getY();
 
         Panel panel2 = (Panel)panels.get(index2);
-        int x2 = panel2.getX();
-        int y2 = panel2.getY();
 
-        panel1.setX(x2);
-        panel1.setY(y2);
+        panel1.setX(panel2.getX());
+        panel1.setY(panel2.getY());
 
         panel2.setX(x1);
         panel2.setY(y1);
