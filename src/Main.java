@@ -1,10 +1,13 @@
 import processing.core.PApplet;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class Main extends PApplet {
 
     final int NUM_PANELS_HORIZONTAL = 4; // the horizontal quantity of panels; number of columns
     final int NUM_PANELS_VERTICAL = 11; // the vertical quantity of panels; number of rows
-    private Drawable[] panels; // declaration of array of type Drawable
+    private ArrayList<Drawable> panels; // declaration of array of type Drawable
 
     public static PApplet app;
 
@@ -22,7 +25,7 @@ public class Main extends PApplet {
 
     public void setup() {
         // allocating space for panels, but not adding them yet
-        panels = new Drawable[NUM_PANELS_HORIZONTAL * NUM_PANELS_VERTICAL];
+        panels = new ArrayList<Drawable>();
 
         // position in the array for the next panel
         int index = 0;
@@ -33,8 +36,8 @@ public class Main extends PApplet {
 
         String imageName = "data/galaxytransparent.png";
 
-        for (int col = 0; col < NUM_PANELS_HORIZONTAL; col++) {    // iterate by column
-            for (int row = 0; row < NUM_PANELS_VERTICAL; row++) {   // iterate by row
+        for (int row = 0; row < NUM_PANELS_VERTICAL; row++) {    // iterate by row
+            for (int col = 0; col < NUM_PANELS_HORIZONTAL; col++) {   // iterate by column
 
                 // calculating upper left corner of panel
                 int x = col * width / NUM_PANELS_HORIZONTAL;
@@ -63,21 +66,21 @@ public class Main extends PApplet {
                 } else if (row == 4) {
                     s = new ThresholdPanel(x, y, w, h, index, imageName);
                 } else if (row == 5) {
-                    s = new FlashlightPanel(x, y, w, h, index, imageName);
-                } else if (row == 6) {
                     s = new ScaleAndRotatePanel(x, y, w, h, index, imageName);
+                } else if (row == 6) {
+                    s = new FlashlightPanel(x, y, w, h, index, imageName);
                 } else if (row == 7) {
-                    s = new FilterPanel(x, y, w, h, index, imageName);
-                } else if (row == 8) {
-                    s = new BlendedPanel(x, y, w, h, index, imageName, "data/spaceimage.jpg");
-                } else if (row == 9) {
                     s = new VectorPanel(x, y, w, h, index, imageName, (float) 0.3);
+                } else if (row == 8) {
+                    s = new FilterPanel(x, y, w, h, index, imageName);
+                } else if (row == 9) {
+                    s = new BlendedPanel(x, y, w, h, index, imageName, "data/spaceimage.jpg");
                 } else {
                     s = new ContrastedPanel(x, y, w, h, index, imageName);
                 }
 
                 // adding the Panel object into the array
-                panels[index] = s;
+                panels.add(index, s);
                 // increment index to the next position in the array
                 index++;
             }
@@ -86,18 +89,60 @@ public class Main extends PApplet {
 
     public void draw() {
         fancyBackground();
-        for (int i = 0; i < panels.length; i++) {
-            panels[i].display();
+        for (int i = 0; i < panels.size(); i++) {
+            panels.get(i).display();
         }
     }
 
     public void mouseClicked() {
-        for (int i = 0; i < panels.length; i++) {
-            Drawable s = panels[i];
+        for (int i = 0; i < panels.size(); i++) {
+            Drawable s = panels.get(i);
             if (s instanceof Clickable) { // check if s is an instance of Clickable
                 ((Clickable)s).handleMouseClicked(mouseX, mouseY); // downcasting
             }
         }
+    }
+
+    public void keyPressed() {
+        if (key == 's') {
+            swapPanels(0, panels.size()-1);
+        }
+        if (key == 'r') {
+            Random ran = new Random();
+
+            // get two random panel indices
+            int panel1Index = ran.nextInt(panels.size());
+            int panel2Index = ran.nextInt(panels.size());
+
+            // ensure panels at indices are of different subclasses/types
+            while(panels.get(panel1Index).getClass() == panels.get(panel2Index).getClass()) {
+                panel2Index = ran.nextInt(panels.size());
+            }
+
+            swapPanels(panel1Index, panel2Index);
+        }
+    }
+
+    private void swapPanels(int index1, int index2) {
+        Panel panel1 = (Panel)panels.get(index1);
+        int x1 = panel1.getX();
+        int y1 = panel1.getY();
+
+        Panel panel2 = (Panel)panels.get(index2);
+        int x2 = panel2.getX();
+        int y2 = panel2.getY();
+
+        panel1.setX(x2);
+        panel1.setY(y2);
+
+        panel2.setX(x1);
+        panel2.setY(y1);
+
+        panels.remove(index1);
+        panels.add(index1, panel2);
+
+        panels.remove(index2);
+        panels.add(index2, panel1);
     }
 
     private void fancyBackground() {

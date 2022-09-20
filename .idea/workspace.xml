@@ -1,26 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b20d0098-e9b0-4915-a4d3-afaab7339adb" name="Changes" comment="image processing project - updated panels">
-      <change afterPath="$PROJECT_DIR$/src/Clickable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Drawable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ImageWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Reflectable.java" afterDir="false" />
+    <list default="true" id="b20d0098-e9b0-4915-a4d3-afaab7339adb" name="Changes" comment="refactored project w/ interfaces and abstract classes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AlphaModification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AlphaModification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BlendedPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BlendedPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ContrastedPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ContrastedPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FilterPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FilterPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FlashlightPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FlashlightPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GrayscalePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GrayscalePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImageWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NegativePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/NegativePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Panel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ReflectionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReflectionPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ScaleAndRotatePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScaleAndRotatePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ThresholdPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ThresholdPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TintedPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TintedPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VectorPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VectorPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +88,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661798841245</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="refactored project w/ interfaces and abstract classes">
+      <created>1662852465481</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1662852465481</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -120,7 +111,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="image processing project - updated panels" />
-    <option name="LAST_COMMIT_MESSAGE" value="image processing project - updated panels" />
+    <MESSAGE value="refactored project w/ interfaces and abstract classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored project w/ interfaces and abstract classes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

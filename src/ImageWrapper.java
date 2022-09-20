@@ -24,12 +24,12 @@ public abstract class ImageWrapper {
         return _y;
     }
 
-    public void setX(int _x) {
-        _x = _x;
+    public void setX(int x) {
+        _x = x;
     }
 
-    public void setY(int _y) {
-        _y = _y;
+    public void setY(int y) {
+        _y = y;
     }
 
     public int getWidth() {
