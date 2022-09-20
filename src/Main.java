@@ -138,11 +138,8 @@ public class Main extends PApplet {
         panel2.setX(x1);
         panel2.setY(y1);
 
-        panels.remove(index1);
-        panels.add(index1, panel2);
-
-        panels.remove(index2);
-        panels.add(index2, panel1);
+        panels.set(index1, panel2);
+        panels.set(index2, panel1);
     }
 
     private void fancyBackground() {
