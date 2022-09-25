@@ -1,22 +1,21 @@
 import processing.core.PApplet;
-
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Main extends PApplet {
 
-    final int NUM_PANELS_HORIZONTAL = 4; // the horizontal quantity of panels; number of columns
-    final int NUM_PANELS_VERTICAL = 11; // the vertical quantity of panels; number of rows
-    private ArrayList<Drawable> panels; // declaration of array of type Drawable
+    private final int NUM_PANELS_HORIZONTAL = 4; // the horizontal quantity of panels; number of columns
+    private final int NUM_PANELS_VERTICAL = 11; // the vertical quantity of panels; number of rows
+    private ArrayList<Drawable> panels; // declaration of arrayList of type Drawable
 
     public static PApplet app;
 
-    public Main() {
-        app = this;
-    }
-
     public static void main(String[] args) {
         PApplet.main("Main");
+    }
+
+    public Main() {
+        app = this;
     }
 
     public void settings() {

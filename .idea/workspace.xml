@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b20d0098-e9b0-4915-a4d3-afaab7339adb" name="Changes" comment="converted panels to an ArrayList; implemented keyPressed() that swaps elements in ArrayList">
+    <list default="true" id="b20d0098-e9b0-4915-a4d3-afaab7339adb" name="Changes" comment="removed two variables in swapPanels()">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +100,21 @@
       <option name="project" value="LOCAL" />
       <updated>1663633764459</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="implemented keyPressed() and swapPanels() that swaps elements in ArrayList">
+      <created>1663634223691</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1663634223692</updated>
+    </task>
+    <task id="LOCAL-00005" summary="removed two variables in swapPanels()">
+      <created>1663634501864</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1663634501864</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -119,7 +132,9 @@
     <MESSAGE value="image processing project - updated panels" />
     <MESSAGE value="refactored project w/ interfaces and abstract classes" />
     <MESSAGE value="converted panels to an ArrayList; implemented keyPressed() that swaps elements in ArrayList" />
-    <option name="LAST_COMMIT_MESSAGE" value="converted panels to an ArrayList; implemented keyPressed() that swaps elements in ArrayList" />
+    <MESSAGE value="implemented keyPressed() and swapPanels() that swaps elements in ArrayList" />
+    <MESSAGE value="removed two variables in swapPanels()" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed two variables in swapPanels()" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
